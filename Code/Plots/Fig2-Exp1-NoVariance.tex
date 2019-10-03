@@ -1,0 +1,93 @@
+\documentclass{standalone}
+
+\usepackage{tikz,pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{groupplots}
+%\pgfplotsset{compat=1.14}
+
+
+\begin{document}
+
+\pgfplotstableread[col sep = comma]{Results/novar/20/tx_times.csv}\txtwenty %
+\pgfplotstableread[col sep = comma]{Results/novar/25/tx_times.csv}\txtwentyfive %
+\pgfplotstableread[col sep = comma]{Results/novar/30/tx_times.csv}\txthirty %
+\pgfplotstableread[col sep = comma]{Results/novar/35/tx_times.csv}\txthirtyfive %
+\pgfplotstableread[col sep = comma]{Results/novar/40/tx_times.csv}\txforty %
+
+\begin{tikzpicture}
+\begin{groupplot}[%
+  group style = {group size = 1 by 5,
+  vertical sep = 0.5 cm,
+  y descriptions at = edge left},
+  height=3.2cm,
+  ymin = 0,
+  ymax = 41,
+  xmin = 0,
+  xmax = 500,
+  width=\linewidth,
+  grid = major,
+  scaled x ticks = false,
+  scaled y ticks = false,
+  x tick label style = {/pgf/number format/fixed},
+  y tick label style = {/pgf/number format/fixed},
+  legend style = {draw=none,font=\scriptsize},
+]
+
+\nextgroupplot[%
+  legend columns=5,
+  legend style={at={(0.5,1)},anchor=south},
+  xticklabels={,,},
+  title = {\scriptsize Deadline $D_F$ = 20},
+  title style={at={(0.5,0.8)}},
+]
+  \addplot[mark=none, blue, dashed, forget plot, thick] coordinates {(0,20) (1000,20)};
+  \addplot[blue, only marks, mark=o, each nth point=5] table [x index = {0}, y index = {1}]{\txtwenty};
+
+\nextgroupplot[%
+  legend columns=5,
+  legend style={at={(0.5,1)},anchor=south},
+    xticklabels={,,},
+  title = {\scriptsize Deadline $D_F$ = 25},
+title style={at={(0.5,0.8)}},
+]
+  \addplot[mark=none, red,  dashed, forget plot, thick] coordinates {(0,25) (1000,25)};
+  \addplot[red, only marks, mark=o, each nth point=5] table [x index = {0}, y index = {1}]{\txtwentyfive};
+
+\nextgroupplot[%
+  legend columns=5,
+  legend style={at={(0.5,1)},anchor=south},
+  ylabel = {Transmission Time},
+  xticklabels={,,},
+  title = {\scriptsize Deadline $D_F$ = 30},
+   title style={at={(0.5,0.8)}},
+]
+
+  \addplot[mark=none, green!30!black,  dashed, forget plot, thick] coordinates {(0,30) (1000,30)};
+  \addplot[ green!30!black, only marks, mark=o, each nth point=5] table [x index = {0}, y index = {1}]{\txthirty};
+
+\nextgroupplot[%
+  legend columns=5,
+  legend style={at={(0.5,1)},anchor=south},
+  xticklabels={,,},
+  title = {\scriptsize Deadline $D_F$ = 35},
+  title style={at={(0.5,0.8)}},
+]
+
+  \addplot[mark=none, violet,  dashed, forget plot, thick] coordinates {(0,35) (1000,35)};
+  \addplot[violet, only marks, mark=o, each nth point=5] table [x index = {0}, y index = {1}]{\txthirtyfive};
+
+\nextgroupplot[%
+  legend columns=5,
+  legend style={at={(0.5,1)},anchor=south},
+  xlabel = {Packet / Episode No.},
+   title = {\scriptsize Deadline $D_F$ = 40},
+   title style={at={(0.5,0.8)}},
+]
+
+  \addplot[mark=none, cyan,  dashed, forget plot, thick] coordinates {(0,40) (1000,40)};
+  \addplot[cyan, only marks, mark=o, each nth point=5] table [x index = {0}, y index = {1}]{\txforty};
+
+\end{groupplot}
+\end{tikzpicture}
+
+\end{document}

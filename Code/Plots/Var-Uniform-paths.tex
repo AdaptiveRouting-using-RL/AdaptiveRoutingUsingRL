@@ -1,0 +1,414 @@
+\documentclass{standalone}
+
+\usepackage{tikz,pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{groupplots}
+%\pgfplotsset{compat=1.14}
+
+
+\begin{document}
+
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/1/best_path_proc.csv}\besttwentyone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/2/best_path_proc.csv}\besttwentytwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/3/best_path_proc.csv}\besttwentythree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/4/best_path_proc.csv}\besttwentyfour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/5/best_path_proc.csv}\besttwentyfive %
+
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/1/chosen_path_proc.csv}\chosentwentyone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/2/chosen_path_proc.csv}\chosentwentytwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/3/chosen_path_proc.csv}\chosentwentythree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/4/chosen_path_proc.csv}\chosentwentyfour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/5/chosen_path_proc.csv}\chosentwentyfive %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/1/best_path_proc.csv}\besttwentyfiveone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/2/best_path_proc.csv}\besttwentyfivetwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/3/best_path_proc.csv}\besttwentyfivethree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/4/best_path_proc.csv}\besttwentyfivefour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/5/best_path_proc.csv}\besttwentyfivefive %
+
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/1/chosen_path_proc.csv}\chosentwentyfiveone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/2/chosen_path_proc.csv}\chosentwentyfivetwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/3/chosen_path_proc.csv}\chosentwentyfivethree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/4/chosen_path_proc.csv}\chosentwentyfivefour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/5/chosen_path_proc.csv}\chosentwentyfivefive %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/1/best_path_proc.csv}\bestthirtyone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/2/best_path_proc.csv}\bestthirtytwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/3/best_path_proc.csv}\bestthirtythree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/4/best_path_proc.csv}\bestthirtyfour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/5/best_path_proc.csv}\bestthirtyfive %
+
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/1/chosen_path_proc.csv}\chosenthirtyone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/2/chosen_path_proc.csv}\chosenthirtytwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/3/chosen_path_proc.csv}\chosenthirtythree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/4/chosen_path_proc.csv}\chosenthirtyfour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/5/chosen_path_proc.csv}\chosenthirtyfive %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/1/best_path_proc.csv}\bestthirtyfiveone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/2/best_path_proc.csv}\bestthirtyfivetwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/3/best_path_proc.csv}\bestthirtyfivethree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/4/best_path_proc.csv}\bestthirtyfivefour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/5/best_path_proc.csv}\bestthirtyfivefive %
+
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/1/chosen_path_proc.csv}\chosenthirtyfiveone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/2/chosen_path_proc.csv}\chosenthirtyfivetwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/3/chosen_path_proc.csv}\chosenthirtyfivethree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/4/chosen_path_proc.csv}\chosenthirtyfivefour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/5/chosen_path_proc.csv}\chosenthirtyfivefive %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/1/best_path_proc.csv}\bestfortyone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/2/best_path_proc.csv}\bestfortytwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/3/best_path_proc.csv}\bestfortythree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/4/best_path_proc.csv}\bestfortyfour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/5/best_path_proc.csv}\bestfortyfive %
+
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/1/chosen_path_proc.csv}\chosenfortyone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/2/chosen_path_proc.csv}\chosenfortytwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/3/chosen_path_proc.csv}\chosenfortythree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/4/chosen_path_proc.csv}\chosenfortyfour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/5/chosen_path_proc.csv}\chosenfortyfive %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{tikzpicture}
+\begin{groupplot}[%
+  group style = {group size = 5 by 5, % was 2 before
+  vertical sep = 0.5 cm,
+  horizontal sep = 0.5cm,
+  y descriptions at = edge left},
+  filter discard warning=false,
+  %height=3cm,
+  %width=0.25\linewidth,
+  grid = major,
+  scaled x ticks = false,
+  scaled y ticks = false,
+  x tick label style = {/pgf/number format/fixed, font = \small},
+  y tick label style = {/pgf/number format/fixed},
+  %y tick label style = {/pgf/number format/.cd, fixed zerofill,
+  %  precision = 1},
+  legend style = {draw=none,font=\scriptsize},
+  xmin = 0,
+  xmax = 1000,
+  ymin = 0,
+  ymax = 4,
+]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ROW 1 %
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  legend style={at={(0.5,1.30)},anchor=south},
+  legend entries = {Best Path $D_F$ = 20, Chosen path},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ blue,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\besttwentyone};
+  \addplot[ blue,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosentwentyone};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  legend style={at={(0.5,1.30)},anchor=south},
+  legend entries = {Best Path $D_F$ = 25, Chosen path},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ red,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\besttwentyfiveone};
+  \addplot[ red,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosentwentyfiveone};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  legend style={at={(0.5,1.30)},anchor=south},
+  legend entries = {Best Path $D_F$ = 30, Chosen path},
+  title = {0 = $[i,t]$, 1 = $[i,x,t]$, 2 = $[i,x,y,t]$,3 = $[i,x,z,t]$ \\ \scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ green!30!black,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestthirtyone};
+  \addplot[ green!30!black,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenthirtyone};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  legend style={at={(0.5,1.30)},anchor=south},
+  legend entries = {Best Path $D_F$ = 35, Chosen path},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ violet,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestthirtyfiveone};
+  \addplot[ violet,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenthirtyfiveone};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  legend style={at={(0.5,1.30)},anchor=south},
+  legend entries = {Best Path $D_F$ = 40, Chosen path},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ cyan,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestfortyone};
+  \addplot[ cyan,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenfortyone};
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ROW 2 %
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 25},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ blue,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\besttwentytwo};
+  \addplot[ blue,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosentwentytwo};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 25},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ red,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\besttwentyfivetwo};
+  \addplot[ red,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosentwentyfivetwo};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 25},
+  title = {\scriptsize Variance = 2},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ green!30!black,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestthirtytwo};
+  \addplot[ green!30!black,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenthirtytwo};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 25},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ violet,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestthirtyfivetwo};
+  \addplot[ violet,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenthirtyfivetwo};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 25},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ cyan,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestfortytwo};
+  \addplot[ cyan,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenfortytwo};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ROW 3 %
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 25},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ blue,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\besttwentythree};
+  \addplot[ blue,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosentwentythree};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 25},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ red,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\besttwentyfivethree};
+  \addplot[ red,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosentwentyfivethree};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 25},
+  title = {\scriptsize Variance = 3},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ green!30!black,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestthirtythree};
+  \addplot[ green!30!black,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenthirtythree};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 25},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ violet,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestthirtyfivethree};
+  \addplot[ violet,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenthirtyfivethree};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 50},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ cyan,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestfortythree};
+  \addplot[ cyan,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenfortythree};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ROW 4
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 50},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ blue,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\besttwentyfour};
+  \addplot[ blue,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosentwentyfour};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 50},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ red,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\besttwentyfivefour};
+  \addplot[ red,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosentwentyfivefour};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 50},
+  title = {\scriptsize Variance = 4},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ green!30!black,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestthirtyfour};
+  \addplot[ green!30!black,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenthirtyfour};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 50},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ violet,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestthirtyfivefour};
+  \addplot[ violet,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenthirtyfivefour};
+
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.30)},anchor=south},
+  %legend entries = { $D_F$ = 50},
+  %title = {\scriptsize Variance = 1},
+  title style={at={(0.5,1)}},
+]
+  \addplot[ cyan,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestfortyfour};
+  \addplot[ cyan,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenfortyfour};
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ROW 5
+
+  \nextgroupplot[
+    xticklabels={,,},
+    ylabel = {},
+    %legend columns=5,
+    %legend style={at={(0.5,1.30)},anchor=south},
+    %legend entries = { $D_F$ = 50},
+    %title = {\scriptsize Variance = 1},
+    title style={at={(0.5,1)}},
+  ]
+    \addplot[ blue,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\besttwentyfive};
+    \addplot[ blue,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosentwentyfive};
+
+  \nextgroupplot[
+    xticklabels={,,},
+    ylabel = {},
+    %legend columns=5,
+    %legend style={at={(0.5,1.30)},anchor=south},
+    %legend entries = { $D_F$ = 50},
+    %title = {\scriptsize Variance = 1},
+    title style={at={(0.5,1)}},
+  ]
+    \addplot[ red,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\besttwentyfivefive};
+    \addplot[ red,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosentwentyfivefive};
+
+  \nextgroupplot[
+    xticklabels={,,},
+    ylabel = {},
+    %legend columns=5,
+    %legend style={at={(0.5,1.30)},anchor=south},
+    %legend entries = { $D_F$ = 50},
+    title = {\scriptsize Variance = 6},
+    title style={at={(0.5,1)}},
+  ]
+    \addplot[ green!30!black,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestthirtyfive};
+    \addplot[ green!30!black,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenthirtyfive};
+
+  \nextgroupplot[
+    xticklabels={,,},
+    ylabel = {},
+    %legend columns=5,
+    %legend style={at={(0.5,1.30)},anchor=south},
+    %legend entries = { $D_F$ = 50},
+    %title = {\scriptsize Variance = 1},
+    title style={at={(0.5,1)}},
+  ]
+    \addplot[ violet,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestthirtyfivefive};
+    \addplot[ violet,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenthirtyfivefive};
+
+  \nextgroupplot[
+    xticklabels={,,},
+    ylabel = {},
+    %legend columns=5,
+    %legend style={at={(0.5,1.30)},anchor=south},
+    %legend entries = { $D_F$ = 50},
+    %title = {\scriptsize Variance = 1},
+    title style={at={(0.5,1)}},
+  ]
+    \addplot[ cyan,only marks, mark=o, each nth point=25] table[x index = {0}, y index = {1}] {\bestfortyfive};
+    \addplot[ cyan,only marks, mark=x, each nth point=25] table[x index = {0}, y index = {1}] {\chosenfortyfive};
+
+
+\end{groupplot}
+\end{tikzpicture}
+
+\end{document}

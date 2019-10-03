@@ -1,0 +1,389 @@
+\documentclass{standalone}
+
+\usepackage{tikz,pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{groupplots}
+%\pgfplotsset{compat=1.14}
+
+
+\begin{document}
+
+
+%\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/0/tx_times.csv}\txtwentyzero %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/1/tx_times.csv}\txtwentyone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/2/tx_times.csv}\txtwentytwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/3/tx_times.csv}\txtwentythree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/4/tx_times.csv}\txtwentyfour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/20/5/tx_times.csv}\txtwentyfive %
+
+
+%\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/0/tx_times.csv}\txtwentyfivezero %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/1/tx_times.csv}\txtwentyfiveone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/2/tx_times.csv}\txtwentyfivetwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/3/tx_times.csv}\txtwentyfivethree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/4/tx_times.csv}\txtwentyfivefour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/25/5/tx_times.csv}\txtwentyfivefive %
+
+%\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/0/tx_times.csv}\txthirtyzero %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/1/tx_times.csv}\txthirtyone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/2/tx_times.csv}\txthirtytwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/3/tx_times.csv}\txthirtythree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/4/tx_times.csv}\txthirtyfour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/30/5/tx_times.csv}\txthirtyfive %
+
+%\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/0/tx_times.csv}\txthirtyfivezero %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/1/tx_times.csv}\txthirtyfiveone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/2/tx_times.csv}\txthirtyfivetwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/3/tx_times.csv}\txthirtyfivethree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/4/tx_times.csv}\txthirtyfivefour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/35/5/tx_times.csv}\txthirtyfivefive %
+
+%\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/0/tx_times.csv}\txfortyzero %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/1/tx_times.csv}\txfortyone %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/2/tx_times.csv}\txfortytwo %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/3/tx_times.csv}\txfortythree %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/4/tx_times.csv}\txfortyfour %
+\pgfplotstableread[col sep = comma]{Results/Var/uniform/40/5/tx_times.csv}\txfortyfive %
+
+\begin{tikzpicture}
+\begin{groupplot}[%
+  group style = {group size = 5 by 5, % was 2 before
+  vertical sep = 0.5 cm,
+  horizontal sep = 0.35cm,
+  y descriptions at = edge left},
+  height=4cm,
+  width=5cm,
+  grid = major,
+  scaled x ticks = false,
+  scaled y ticks = false,
+  x tick label style = {/pgf/number format/fixed, font = \small},
+  y tick label style = {/pgf/number format/fixed},
+  %y tick label style = {/pgf/number format/.cd, fixed zerofill,
+  %  precision = 1},
+  legend style = {draw=none,font=\small},
+  xmin = 0,
+  xmax = 1000,
+  ymin = 0,
+  ymax = 41,
+]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ROW 1 %
+\nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  legend style={at={(0.5,1.30)},anchor=south},
+  legend entries = { $D_F$ = 20},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, blue, thick, dashed, forget plot] coordinates {(0,20) (1000,20)};
+  \addplot[ blue,only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txtwentyone};
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  legend style={at={(0.5,1.30)},anchor=south},
+  legend entries = { $D_F$ = 25},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, red, thick, dashed, forget plot] coordinates {(0,25) (1000,25)};
+  \addplot[ red,only marks, mark=o, each nth point=10] table[x index = {0}, y index = {1}] {\txtwentyfiveone};
+
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  legend style={at={(0.5,1.30)},anchor=south},
+  legend entries = { $D_F$ = 30},
+  title = {\small Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+ \addplot[mark=none, green!30!black, thick, dashed, forget plot] coordinates {(0,30) (1000,30)};
+  \addplot[ green!30!black, only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txthirtyone};
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  legend style={at={(0.5,1.30)},anchor=south},
+  legend entries = { $D_F$ = 35},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+ \addplot[mark=none, violet, thick, dashed, forget plot] coordinates {(0,35) (1000,35)};
+  \addplot[ violet,only marks, mark=o, each nth point=10] table[x index = {0}, y index = {1}] {\txthirtyfiveone};
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  legend style={at={(0.5,1.30)},anchor=south},
+  legend entries = { $D_F$ = 40},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+
+  \addplot[mark=none, cyan, thick, dashed, forget plot] coordinates {(0,40) (1000,40)};
+  \addplot[ cyan,only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txfortyone};
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ROW 2 %%%%%%%%%%%%%%%%%%
+\nextgroupplot[
+  xticklabels={,,},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, blue, thick, dashed, forget plot] coordinates {(0,20) (1000,20)};
+  \addplot[ blue,only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txtwentytwo};
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, red, thick, dashed, forget plot] coordinates {(0,25) (1000,25)};
+  \addplot[ red,only marks, mark=o, each nth point=10] table[x index = {0}, y index = {1}] {\txtwentyfivetwo};
+
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  title = {\small Interval Lenght = 2},
+  title style={at={(0.5,0.9)}},
+]
+ \addplot[mark=none, green!30!black, thick, dashed, forget plot] coordinates {(0,30) (1000,30)};
+  \addplot[ green!30!black, only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txthirtytwo};
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+ \addplot[mark=none, violet, thick, dashed, forget plot] coordinates {(0,35) (1000,35)};
+  \addplot[ violet, only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txthirtyfivetwo};
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, cyan, thick, dashed, forget plot] coordinates {(0,40) (1000,40)};
+  \addplot[ cyan,only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txfortytwo};
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ROW 3 %%%%%%%%%%%%%%%%%%
+
+  \nextgroupplot[
+  xticklabels={,,},
+  ylabel = {Transmission Time},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, blue, thick, dashed, forget plot] coordinates {(0,20) (1000,20)};
+  \addplot[ blue,only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txtwentythree};
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, red, thick, dashed, forget plot] coordinates {(0,25) (1000,25)};
+  \addplot[ red, only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txtwentyfivethree};
+
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %xlabel= {Packet / Episode No.}
+  title = {\small Interval Lenght = 3},
+  title style={at={(0.5,0.9)}},
+]
+ \addplot[mark=none, green!30!black, thick, dashed, forget plot] coordinates {(0,30) (1000,30)};
+  \addplot[ green!30!black, only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txthirtythree};
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+ \addplot[mark=none, violet, thick, dashed, forget plot] coordinates {(0,35) (1000,35)};
+  \addplot[ violet,only marks, mark=o, each nth point=10] table[x index = {0}, y index = {1}] {\txthirtyfivethree};
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, cyan, thick, dashed, forget plot] coordinates {(0,40) (1000,40)};
+  \addplot[ cyan,only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txfortythree};
+
+     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ROW 4 %%%%%%%%%%%%%%%%%%
+
+  \nextgroupplot[
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, blue, thick, dashed, forget plot] coordinates {(0,20) (1000,20)};
+  \addplot[ blue,only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txtwentyfour};
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 4},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, red, thick, dashed, forget plot] coordinates {(0,25) (1000,25)};
+  \addplot[ red, only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txtwentyfivefour};
+
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %xlabel= {Packet / Episode No.}
+  title = {\small Interval Lenght = 4},
+  title style={at={(0.5,0.9)}},
+]
+ \addplot[mark=none, green!30!black, thick, dashed, forget plot] coordinates {(0,30) (1000,30)};
+  \addplot[ green!30!black, only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txthirtyfour};
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+ \addplot[mark=none, violet, thick, dashed, forget plot] coordinates {(0,35) (1000,35)};
+  \addplot[ violet,only marks, mark=o, each nth point=10] table[x index = {0}, y index = {1}] {\txthirtyfivefour};
+
+\nextgroupplot[%
+  xticklabels={,,},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, cyan, thick, dashed, forget plot] coordinates {(0,40) (1000,40)};
+  \addplot[ cyan,only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txfortyfour};
+
+     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ROW 5 %%%%%%%%%%%%%%%%%%
+
+  \nextgroupplot[
+  xtick={0,200,400,500,600,800,1000},
+  xticklabels={0,,,500,,,1000},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, blue, thick, dashed, forget plot] coordinates {(0,20) (1000,20)};
+  \addplot[ blue,only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txtwentyfive};
+
+\nextgroupplot[%
+  xtick={0,200,400,500,600,800,1000},
+  xticklabels={0,,,500,,,1000},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, red, thick, dashed, forget plot] coordinates {(0,25) (1000,25)};
+  \addplot[ red, only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txtwentyfivefive};
+
+
+\nextgroupplot[%
+  xtick={0,200,400,500,600,800,1000},
+  xticklabels={0,,,500,,,1000},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  xlabel= {Packet / Episode No.},
+  title = {\small Interval Lenght = 5},
+  title style={at={(0.5,0.9)}},
+]
+ \addplot[mark=none, green!30!black, thick, dashed, forget plot] coordinates {(0,30) (1000,30)};
+  \addplot[ green!30!black, only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txthirtyfive};
+
+\nextgroupplot[%
+  xtick={0,200,400,500,600,800,1000},
+  xticklabels={0,,,500,,,1000},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+ \addplot[mark=none, violet, thick, dashed, forget plot] coordinates {(0,35) (1000,35)};
+  \addplot[ violet,only marks, mark=o, each nth point=10] table[x index = {0}, y index = {1}] {\txthirtyfivefive};
+
+\nextgroupplot[%
+  xtick={0,200,400,500,600,800,1000},
+  xticklabels={0,,,500,,,1000},
+  ylabel = {},
+  %legend columns=5,
+  %legend style={at={(0.5,1.25)},anchor=south},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+  %title = {\scriptsize Interval Lenght = 1},
+  title style={at={(0.5,0.9)}},
+]
+  \addplot[mark=none, cyan, thick, dashed, forget plot] coordinates {(0,40) (1000,40)};
+  \addplot[ cyan,only marks, mark=o,each nth point=10] table[x index = {0}, y index = {1}] {\txfortyfive};
+\end{groupplot}
+\end{tikzpicture}
+
+\end{document}

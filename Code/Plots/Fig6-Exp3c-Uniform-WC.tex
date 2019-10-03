@@ -1,0 +1,162 @@
+\documentclass{standalone}
+
+\usepackage{tikz,pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{groupplots}
+%\pgfplotsset{compat=1.14}
+
+
+\begin{document}
+
+\pgfplotstableread[col sep = comma]{Results/uniform-wc/20/tx_times.csv}\txtwenty %
+\pgfplotstableread[col sep = comma]{Results/uniform-wc/25/tx_times.csv}\txtwentyfive %
+\pgfplotstableread[col sep = comma]{Results/uniform-wc/30/tx_times.csv}\txthirty %
+\pgfplotstableread[col sep = comma]{Results/uniform-wc/35/tx_times.csv}\txthirtyfive %
+\pgfplotstableread[col sep = comma]{Results/uniform-wc/40/tx_times.csv}\txforty %
+
+\begin{tikzpicture}
+\begin{groupplot}[%
+  group style = {group size = 1 by 5,
+  vertical sep = 0.5 cm,
+  y descriptions at = edge left},
+  height=3cm,
+  width=\linewidth,
+  grid = major,
+  scaled x ticks = false,
+  scaled y ticks = false,
+  x tick label style = {/pgf/number format/fixed},
+  y tick label style = {/pgf/number format/fixed},
+  legend style = {draw=none,font=\scriptsize},
+]
+
+\nextgroupplot[%
+  every mark/.append style={mark size=4pt},
+  xmin = 0,
+  xmax = 1000,
+  ymin = 0,
+  ymax = 30,
+  legend columns=5,
+  legend style={at={(0.5,1)},anchor=south},
+  %xlabel = {Packet / Episode No.},
+    xticklabels={,,},
+  title = {\scriptsize Deadline $D_F$ = 20},
+title style={at={(0.5,0.8)}},
+  %legend entries = {$D$ = 20},%, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,},
+]
+  \addplot[mark=none, blue,  dashed, forget plot] coordinates {(0,20) (1000,20)};
+%  \addplot[mark=none, red,  dashed, forget plot] coordinates {(0,25) (1000,25)};
+%  \addplot[mark=none, green!30!black,  dashed, forget plot] coordinates {(0,30) (1000,30)};
+%  \addplot[mark=none, violet,  dashed, forget plot] coordinates {(0,35) (1000,35)};
+%  \addplot[mark=none, cyan,  dashed, forget plot] coordinates {(0,40) (1000,40)};
+
+%  \addplot[ blue!40!white]table[x index = {0}, y index = {1}]{\txtwenty};
+%  \addplot[ red!40!white]table[x index = {0}, y index = {1}]{\txtwentyfive};
+%  \addplot[ darkgray!40!white]table[x index = {0}, y index = {1}]{\txthirty};
+%  \addplot[ violet!40!white]table[x index = {0}, y index = {1}]{\txthirtyfive};
+%  \addplot[ cyan!40!white]table[x index = {0}, y index = {1}]{\txforty};
+
+  \addplot[ blue, only marks, mark=o, each nth point=5]table[x index = {0}, y index = {1}]{\txtwenty};
+%  \addplot[ red,only marks,each nth point=10]table[x index = {0}, y index = {1}]{\txtwentyfive};
+%  \addplot[ green!30!black,only marks,each nth point=10]table[x index = {0}, y index = {1}]{\txthirty};
+%  \addplot[ violet,only marks,each nth point=10]table[x index = {0}, y index = {1}]{\txthirtyfive};
+%  \addplot[ cyan,only marks,each nth point=10]table[x index = {0}, y index = {1}]{\txforty};
+
+\nextgroupplot[%
+  every mark/.append style={mark size=4pt},
+  xmin = 0,
+  xmax = 1000,
+  ymin = 0,
+  ymax = 30,
+  legend columns=5,
+  legend style={at={(0.5,1)},anchor=south},
+    xticklabels={,,},
+  title = {\scriptsize Deadline $D_F$ = 25},
+title style={at={(0.5,0.8)}},
+  %xlabel = {Packet / Episode No.},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,
+   % },
+]
+  \addplot[mark=none, red,  dashed, forget plot] coordinates {(0,25) (1000,25)};
+  \addplot[ red,only marks,  mark=o,each nth point=10]table[x index = {0}, y index = {1}]{\txtwentyfive};
+
+\nextgroupplot[%
+  every mark/.append style={mark size=4pt},
+  xmin = 0,
+  xmax = 1000,
+  ymin = 0,
+  ymax = 40,
+  legend columns=5,
+  legend style={at={(0.5,1)},anchor=south},
+  ylabel = {Transmission Time},
+  xticklabels={,,},
+  title = {\scriptsize Deadline $D_F$ = 30},
+   title style={at={(0.5,0.8)}},
+  %xlabel = {Packet / Episode No.},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,
+   % },
+]
+
+  \addplot[mark=none, green!30!black,  dashed, forget plot] coordinates {(0,30) (1000,30)};
+  \addplot[ green!30!black,only marks, mark=o,each nth point=10]table[x index = {0}, y index = {1}]{\txthirty};
+
+\nextgroupplot[%
+  every mark/.append style={mark size=4pt},
+  xmin = 0,
+  xmax = 1000,
+  ymin = 0,
+  ymax = 40,
+  legend columns=5,
+  legend style={at={(0.5,1)},anchor=south},
+    xticklabels={,,},
+     title = {\scriptsize Deadline $D_F$ = 35},
+     title style={at={(0.5,0.8)}},
+  %xlabel = {Packet / Episode No.},
+  %legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,
+   % },
+]
+
+  \addplot[mark=none, violet,  dashed, forget plot] coordinates {(0,35) (1000,35)};
+  \addplot[ violet,only marks, mark=o, each nth point=10]table[x index = {0}, y index = {1}]{\txthirtyfive};
+\nextgroupplot[%
+  every mark/.append style={mark size=4pt},
+  xmin = 0,
+  xmax = 1000,
+  ymin = 0,
+  ymax = 50,
+  legend columns=5,
+  legend style={at={(0.5,1)},anchor=south},
+  xlabel = {Packet / Episode No.},
+   title = {\scriptsize Deadline $D_F$ = 40},
+   title style={at={(0.5,0.8)}},
+ % legend entries = {$D$ = 20, $D$ = 25,$D$ = 30,$D$ = 35,$D$ = 40,
+  %  },
+]
+
+  \addplot[mark=none, cyan,  dashed, forget plot] coordinates {(0,40) (1000,40)};
+  \addplot[ cyan,only marks, mark=o,each nth point=10]table[x index = {0}, y index = {1}]{\txforty};
+
+%\nextgroupplot[%
+%  xmin = 0,
+%  xmax = 0.8 * 10 ^ 5,
+%  ymin = 0.4,
+%  ymax = 1,
+%  xlabel = {Time [s]},
+%  scaled x ticks = base 10:-3,
+%  xtick scale label code/.code={},
+%  ylabel = {SSIM},
+%  ytick={0.4, 0.6, 0.8, 1.0},
+%  yticklabels={0.4, 0.6, 0.8, 1.0},
+%  no markers,
+%  legend entries = {Camera 1, Camera 2},
+%  legend style={at={(1,-0.05)}, anchor=south east, fill=none},
+%]
+%
+%  \addplot[ blue] table[mark = none, y index = {1}]
+%    {\noadaptssimone};
+%  \addplot[ red, dashed] table[mark = none, y index = {1}]
+%    {\noadaptssimtwo};
+
+\end{groupplot}
+\end{tikzpicture}
+
+\end{document}
